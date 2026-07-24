@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DA 3161 Transfer Parser</title>
+<link rel="stylesheet" href="styles.37b9319bbc.css">
+</head>
+<body>
+<div class="page">
+  <header class="app-header">
+    <h1>DA 3161 Transfer Parser</h1>
+    <p>Turn one or more DA FORM 3161 lateral-transfer PDFs into a single serial-number CSV.</p>
+  </header>
+
+  <div class="privacy-banner" role="note">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M9.5 12l2 2 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Runs entirely in your browser. Your PDFs, extracted data, and the CSV never leave this device — nothing is uploaded to a server.</span>
+  </div>
+
+  <section class="card">
+    <h2>1. Choose files</h2>
+    <label class="dropzone" id="dropzone" for="fileInput">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 16V4m0 0L7 9m5-5l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="dz-title">Drop DA 3161 PDFs here, or <span class="link">browse</span></div>
+      <div class="dz-hint">You can select multiple files at once.</div>
+      <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple>
+    </label>
+  </section>
+
+  <section class="card" id="fileListSection" style="display:none">
+    <h2>2. Processing status</h2>
+    <ul class="file-list" id="fileList" aria-live="polite"></ul>
+  </section>
+
+  <section class="card" id="summarySection" style="display:none">
+    <h2>3. Summary</h2>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="statTotalRows">0</div>
+        <div class="stat-label">Total rows</div>
+      </div>
+      <div class="stat-card mismatches">
+        <div class="stat-value" id="statMismatches">0</div>
+        <div class="stat-label">Quantity mismatches</div>
+      </div>
+      <div class="stat-card anomalies">
+        <div class="stat-value" id="statAnomalies">0</div>
+        <div class="stat-label">Anomalies</div>
+      </div>
+      <div class="stat-card errors">
+        <div class="stat-value" id="statErrors">0</div>
+        <div class="stat-label">Unprocessable files</div>
+      </div>
+    </div>
+
+    <details class="disclosure" id="mismatchDisclosure" style="display:none">
+      <summary>Quantity mismatches</summary>
+      <ul id="mismatchList"></ul>
+    </details>
+    <details class="disclosure" id="anomalyDisclosure" style="display:none">
+      <summary>Anomalies (verbatim source typos preserved)</summary>
+      <ul id="anomalyList"></ul>
+    </details>
+    <details class="disclosure" id="errorDisclosure" style="display:none">
+      <summary>Files that could not be fully processed</summary>
+      <ul id="errorList"></ul>
+    </details>
+
+    <div style="margin-top: 1rem;">
+      <button class="btn btn-primary" id="downloadBtn" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 15V3m0 12l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Download CSV
+      </button>
+    </div>
+  </section>
+
+  <section class="card" id="previewSection" style="display:none">
+    <h2>Preview (first 50 rows)</h2>
+    <div class="preview-table-wrap" id="previewTableWrap"></div>
+  </section>
+</div>
+
+<!-- Plain classic scripts only (no type="module") - see worker.js for why:
+     file:// pages are an opaque origin, and ES module fetches of other
+     local files get CORS-blocked there. Classic <script src> isn't. -->
+<script src="lib/vendor/pako_inflate.umd.min.5399434c66.js"></script>
+<script src="lib/md5.bf3f3de50d.js"></script>
+<script src="lib/xml-lite.fbeedbde13.js"></script>
+<script src="lib/pdf-xfa-parser.4fb65653dc.js"></script>
+<script src="lib/da3161-config.58cffd2f03.js"></script>
+<script src="lib/da3161-parser.9a9905affc.js"></script>
+<script src="app.1e03fa6587.js"></script>
+</body>
+</html>
