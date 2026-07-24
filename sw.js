@@ -10,13 +10,14 @@
 // The two tokens below (cache version, precache list) are placeholders
 // substituted by build.mjs at build time - this file is never deployed
 // as-is, only its built-and-substituted form in dist/.
-const CACHE_NAME = 'da3161-parser-7cef3e2979';
+const CACHE_NAME = 'da3161-parser-d00715eb52';
 const PRECACHE_URLS = [
-  "app.1e03fa6587.js",
+  "app.51e2cf5ddf.js",
   "index.html",
-  "lib/da3161-config.58cffd2f03.js",
-  "lib/da3161-parser.9a9905affc.js",
+  "lib/da3161-config.37d30789e0.js",
+  "lib/da3161-parser.77c59479f4.js",
   "lib/md5.bf3f3de50d.js",
+  "lib/ocr.138efb088a.js",
   "lib/pdf-xfa-parser.4fb65653dc.js",
   "lib/vendor/pako_inflate.umd.min.5399434c66.js",
   "lib/vendor/pdf.0ca136ece0.mjs",

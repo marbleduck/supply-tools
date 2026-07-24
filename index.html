@@ -68,6 +68,10 @@
       <summary>Anomalies (verbatim source typos preserved)</summary>
       <ul id="anomalyList"></ul>
     </details>
+    <details class="disclosure" id="ocrDisclosure" style="display:none">
+      <summary>Low-confidence OCR reads (verify against the source scan)</summary>
+      <ul id="ocrWarningList"></ul>
+    </details>
     <details class="disclosure" id="errorDisclosure" style="display:none">
       <summary>Files that could not be fully processed</summary>
       <ul id="errorList"></ul>
@@ -97,8 +101,13 @@
 <script src="lib/md5.bf3f3de50d.js"></script>
 <script src="lib/xml-lite.fbeedbde13.js"></script>
 <script src="lib/pdf-xfa-parser.4fb65653dc.js"></script>
-<script src="lib/da3161-config.58cffd2f03.js"></script>
-<script src="lib/da3161-parser.9a9905affc.js"></script>
-<script src="app.1e03fa6587.js"></script>
+<script src="lib/da3161-config.37d30789e0.js"></script>
+<script src="lib/da3161-parser.77c59479f4.js"></script>
+<!-- Phase 4: OCR support functions (pure reconstruction/confidence-flagging
+     logic). The actual OCR engine (lib/vendor/tesseract/tesseract.min.js)
+     is loaded lazily by app.js only when a file actually needs OCR, since
+     most files never do (XFA path handles the common case). -->
+<script src="lib/ocr.138efb088a.js"></script>
+<script src="app.51e2cf5ddf.js"></script>
 </body>
 </html>

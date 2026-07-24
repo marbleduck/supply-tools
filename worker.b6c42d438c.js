@@ -20,8 +20,8 @@ importScripts(
   'lib/md5.bf3f3de50d.js',
   'lib/xml-lite.fbeedbde13.js',
   'lib/pdf-xfa-parser.4fb65653dc.js',
-  'lib/da3161-config.58cffd2f03.js',
-  'lib/da3161-parser.9a9905affc.js'
+  'lib/da3161-config.37d30789e0.js',
+  'lib/da3161-parser.77c59479f4.js'
 );
 
 self.onmessage = async (event) => {
